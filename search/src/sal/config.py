@@ -30,7 +30,7 @@ class Config:
     )
     prm_path: str = "RLHFlow/Llama3.1-8B-PRM-Deepseek-Data"
     # Output Related Options
-    output_dir: str = "/out" ## Add absolute path
+    output_dir: str = "/kaggle/working/output" ## Add absolute path
     num_proc: int = None
     push_to_hub: bool = False
     hub_dataset_id: str = None
