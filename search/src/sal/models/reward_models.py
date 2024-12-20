@@ -88,7 +88,7 @@ class MathShepherd(PRM):
         model = AutoModelForCausalLM.from_pretrained(
             model_id,
             device_map="auto",
-            attn_implementation="flash_attention_2",
+            #attn_implementation="flash_attention_2",   --> Remove 
             torch_dtype=torch.float16,
         ).eval()
         return model, tokenizer

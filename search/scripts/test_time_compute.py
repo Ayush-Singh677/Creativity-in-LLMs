@@ -51,6 +51,7 @@ def main():
         enable_prefix_caching=True,
         seed=config.seed,
         tensor_parallel_size=num_gpus,
+        dtype = torch.float16  ## Use only for kaggle or collab
     )
     prm = load_prm(config)
 

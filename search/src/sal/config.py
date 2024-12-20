@@ -26,11 +26,11 @@ class Config:
     approach: Literal["best_of_n", "beam_search", "dvts"] = "best_of_n"
     model_path: str = "meta-llama/Llama-3.2-1B-Instruct"
     gpu_memory_utilization: float = (
-        0.5  # vllm is allocated 0.5 of GPU memory, the PRM uses the rest
+        0.3  # vllm is allocated 0.5 of GPU memory, the PRM uses the rest
     )
     prm_path: str = "RLHFlow/Llama3.1-8B-PRM-Deepseek-Data"
     # Output Related Options
-    output_dir: str = None
+    output_dir: str = "/out" ## Add absolute path
     num_proc: int = None
     push_to_hub: bool = False
     hub_dataset_id: str = None
@@ -43,7 +43,7 @@ class Config:
     dataset_split: str = "test"
     dataset_start: int = None
     dataset_end: int = None
-    num_samples: int = None
+    num_samples: int = 10 #None full dataset (500) takes wayyyy too long
 
     # Chat template related options
     system_prompt: str = "Solve the following math problem efficiently and clearly:\n\n- For simple problems (2 steps or fewer):\nProvide a concise solution with minimal explanation.\n\n- For complex problems (3 steps or more):\nUse this step-by-step format:\n\n## Step 1: [Concise description]\n[Brief explanation and calculations]\n\n## Step 2: [Concise description]\n[Brief explanation and calculations]\n\n...\n\nRegardless of the approach, always conclude with:\n\nTherefore, the final answer is: $\\boxed{answer}$. I hope it is correct.\n\nWhere [answer] is just the final number or expression that solves the problem."
